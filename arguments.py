@@ -110,7 +110,7 @@ class ArgParser(object):
                             help='momentum for sgd, beta1 for adam')
         parser.add_argument('--weight_decay', default=1e-4, type=float,
                             help='weights regularizer')
-        parser.add_argument("--use_pretrained", default=0, type=bool,
+        parser.add_argument("--use_pretrained", action='store_true', default=False,
                             help="use pretrained weights in training") 
         self.parser = parser
 
