@@ -561,7 +561,7 @@ if __name__ == '__main__':
     args.vis = os.path.join(args.ckpt, 'visualization/')
     if args.mode == 'train':
         makedirs(args.ckpt, remove=True)
-    elif args.mode == 'eval':
+    elif args.mode == 'eval' or args.use_pretrained:
         args.weights_sound = os.path.join(args.ckpt, 'sound_best.pth')
         args.weights_frame = os.path.join(args.ckpt, 'frame_best.pth')
         args.weights_synthesizer = os.path.join(args.ckpt, 'synthesizer_best.pth')
