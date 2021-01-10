@@ -2,8 +2,8 @@
 
 OPTS=""
 OPTS+="--id MUSIC "
-OPTS+="--../MUSIC_proc/train.csv "
-OPTS+="--../MUSIC_proc/val.csv "
+OPTS+="--list_train ../MUSIC_proc/train.csv "
+OPTS+="--list_val ../MUSIC_proc/val.csv "
 
 # Models
 OPTS+="--arch_sound unet7 "
