@@ -559,13 +559,16 @@ if __name__ == '__main__':
     # paths to save/load output
     args.ckpt = os.path.join(args.ckpt, args.id)
     args.vis = os.path.join(args.ckpt, 'visualization/')
-    if args.mode == 'train':
-        makedirs(args.ckpt, remove=True)
-    elif args.mode == 'eval' or args.use_pretrained:
+    
+    if args.mode == 'eval' or args.use_pretrained:
         print("Using pretrained weights!")
         args.weights_sound = os.path.join(args.ckpt, 'sound_best.pth')
         args.weights_frame = os.path.join(args.ckpt, 'frame_best.pth')
         args.weights_synthesizer = os.path.join(args.ckpt, 'synthesizer_best.pth')
+    
+    if args.mode == 'train':
+        makedirs(args.ckpt, remove=True)
+
 
     # initialize best error with a big number
     args.best_err = float("inf")
