@@ -567,7 +567,7 @@ if __name__ == '__main__':
         args.weights_synthesizer = os.path.join(args.ckpt, 'synthesizer_best.pth')
     
     if args.mode == 'train':
-        makedirs(args.ckpt, remove=True)
+        makedirs(args.ckpt, remove=not args.use_pretrained)
 
 
     # initialize best error with a big number
