@@ -75,7 +75,7 @@ class NetWrapper(torch.nn.Module):
         # 2. forward net_frame -> Bx1xC
         feat_frames = [None for n in range(N)]
         for n in range(N):
-            feat_frames[n] = self.net_frame.forward_multiframe(frames[n], args.img_pooling)
+            feat_frames[n] = self.net_frame.forward_multiframe(frames[n], not args.img_unpooling)
             feat_frames[n] = activate(feat_frames[n], args.img_activation)
 
         # 3. sound synthesizer
