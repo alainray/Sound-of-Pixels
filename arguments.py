@@ -112,6 +112,8 @@ class ArgParser(object):
                             help='weights regularizer')
         parser.add_argument("--use_pretrained", action='store_true', default=False,
                             help="use pretrained weights in training") 
+        parser.add_argument("--img_unpooling", action='store_true', default=False,
+                            help="use pretrained weights in training") 
         self.parser = parser
 
     def print_arguments(self, args):
