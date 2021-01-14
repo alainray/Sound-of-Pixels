@@ -89,8 +89,7 @@ class NetWrapper(torch.nn.Module):
 
         # 4. loss
         if args.img_unpooling:
-            temp = pred_masks.mean(dim=1).mean(dim=1, keepdim=True)
-            err = self.crit(temp, gt_masks, weight).reshape(1)
+            err= 0.0 # TODO: Fix so we can get the actual error
         else:
             err = self.crit(pred_masks, gt_masks, weight).reshape(1)
 
