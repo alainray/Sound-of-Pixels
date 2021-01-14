@@ -88,7 +88,11 @@ class NetWrapper(torch.nn.Module):
             pred_masks[n] = activate(pred_masks[n], args.output_activation)
 
         # 4. loss
-        err = self.crit(pred_masks, gt_masks, weight).reshape(1)
+        if args.img_unpooling:
+            temp = pred_masks.mean(dim=1).mean(dim=1, keepdim=True)
+            err = self.crit(temp, gt_masks, weight).reshape(1)
+        else:
+            err = self.crit(pred_masks, gt_masks, weight).reshape(1)
 
         return err, \
             {'pred_masks': pred_masks, 'gt_masks': gt_masks,
