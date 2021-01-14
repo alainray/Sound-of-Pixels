@@ -81,7 +81,7 @@ class NetWrapper(torch.nn.Module):
         # 3. sound synthesizer
         pred_masks = [None for n in range(N)]
         for n in range(N):
-            if arg.img_unpooling:
+            if args.img_unpooling:
                 pred_masks[n] = self.net_synthesizer.forward_pixelwise(feat_frames[n], feat_sound)
             else:
                 pred_masks[n] = self.net_synthesizer(feat_frames[n], feat_sound)
