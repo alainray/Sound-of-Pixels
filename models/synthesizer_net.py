@@ -27,6 +27,8 @@ class InnerProd(nn.Module):
 
     # inference purposes
     def forward_pixelwise(self, feats_img, feat_sound):
+        feats_img = feats_img.mean(dim=2) # Added to fix dimensions
+                                          # Should go from (B, C, T, H, W) to (B, C, H, W)
         (B, C, HI, WI) = feats_img.size()
         (B, C, HS, WS) = feat_sound.size()
         feats_img = feats_img.view(B, C, HI*WI)
